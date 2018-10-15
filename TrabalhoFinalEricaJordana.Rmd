@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 library("knitr")
 knitr::opts_chunk$set(echo = TRUE)
-##Instalando os pacotes necessários.
+##Instalando os pacotes necessÃ¡rios.
 
 ### Instalando Pacotes ## macetinhos
 lista.de.pacotes = c("tidyverse","lubridate","janitor","readxl","stringr","repmis", "readr", "ggplot2") # escreva a lista de pacotes
@@ -21,20 +21,19 @@ gc()
 ```
 
 <center>
-## Análise de Dados de atendimentos ao sistema Consumidor.gov em relação ao segmento de mercado de Transporte Aéreo.
+## AnÃ¡lise de Dados de atendimentos ao sistema Consumidor.gov em relaÃ§Ã£o ao segmento de mercado de Transporte AÃ©reo.
 <br>
 </center>
 
-<p style="text-align: justify;">Mais informações podem ser obtidas no website do Consumidor.gov] (http:\\www.consumidor.gov.br) .</p> 
+<p style="text-align: justify;">Mais informa??es podem ser obtidas no website do Consumidor.gov] (http:\\www.consumidor.gov.br) .</p> 
 
 <center>![CONSUMIDOR.GOV](https://www.consumidor.gov.br/resources/imagens/logo-nova-900.png) </center>
 
 <p style="text-align: justify;"> </p>
 
-#### Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários
+#### Carregando o arquivo em mÃ©moria e depois vamos usar o bind e apagar os arquivos temporÃ¡rios
 ```{r, warning=FALSE}
 ##carregando em memoria
-## teste
 consumidorgov1 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2015_1.csv",head=TRUE, sep = ";")
 consumidorgov2 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2015_2.csv",head=TRUE, sep = ";")
 consumidorgov3 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2016_1.csv",head=TRUE, sep = ";")
@@ -50,37 +49,37 @@ consumidorgov186 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/Exerci
 consumidorgov187 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-07.csv",head=TRUE, sep = ";")
 consumidorgov188 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-08.csv",head=TRUE, sep = ";")
 consumidorgov189 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-09.csv",head=TRUE, sep = ";")
-##Usando bind
+##Usando bind para agrupar todos os arquivos em um Ãºnico arquivo.
 consumidorgov <- bind_rows(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
 
-##removendo arquivos temporários
+##removendo arquivos temporÃ¡rios
 rm(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
 
 ```
 
-#### Apresentando informações de cabeçalho dos dados
+#### Apresentando informaÃ§Ãµes de cabeÃ§alho dos dados
 ```{r, warning=FALSE}
 head(consumidorgov)
 
 ```
-### A plataforma Consumidor.gov
+### A plataforma Consumidor.gov 
 
-<p style="text-align: justify;">O <b>Consumidor.gov.br</b> é um serviço público que permite a interlocução direta entre consumidores e empresas para solução alternativa de conflitos de consumo pela internet.</p>
+<p style="text-align: justify;">O <b>Consumidor.gov.br</b> Ã‰ um serviÃ§o pÃºblico que permite a interlocuÃ§Ã£o direta entre consumidores e empresas para soluÃ§Ã£o alternativa de conflitos de consumo pela internet.</p>
 
-<p style="text-align: justify;">Ele não substitui o serviço prestado pelos Órgãos de Defesa do Consumidor, que continuam atendendo os consumidores normalmente por meio de seus canais tradicionais de atendimento.</p>
+<p style="text-align: justify;">Ele nÃ£o substitui o serviÃ§o prestado pelos Ã³rgÃ£os de Defesa do Consumidor, que continuam atendendo os consumidores normalmente por meio de seus canais tradicionais de atendimento.</p>
 
-<p style="text-align: justify;">A principal inovação do Consumidor.gov.br está em possibilitar uma interlocução direta entre consumidores e empresas, em um ambiente totalmente público e transparente, dispensada a intervenção do Poder Público na tratativa individual.</p>
+<p style="text-align: justify;">A principal inovaÃ§Ã£o do Consumidor.gov.br estÃ¡ em possibilitar uma interlocuÃ§Ã£o direta entre consumidores e empresas, em um ambiente totalmente pÃºblico e transparente, dispensada a intervenÃ§Ã£o do Poder PÃºblico na tratativa individual.</p>
 
-<p style="text-align: justify;">Por se tratar de um serviço provido e mantido pelo Estado, com ênfase na interatividade entre consumidores e fornecedores para redução de conflitos de consumo, a participação de empresas é voluntária e só é permitida àquelas que aderem formalmente ao serviço, mediante assinatura de termo no qual se comprometem a conhecer, analisar e investir todos os esforços possíveis para a solução dos problemas apresentados. O consumidor, por sua vez, deve se identificar adequadamente e comprometer-se a apresentar todos os dados e informações relativas à reclamação relatada.</p>
+<p style="text-align: justify;">Por se tratar de um serviÃ§o provido e mantido pelo Estado, com Ãªnfase na interatividade entre consumidores e fornecedores para reduÃ§Ã£o de conflitos de consumo, a participaÃ§Ã£o de empresas voluntÃ¡ria e sÃ³ Ã© permitida aquelas que aderem formalmente ao servi?o, mediante assinatura de termo no qual se comprometem a conhecer, analisar e investir todos os esforÃ§os possÃ­veis para a soluÃ§Ã£o dos problemas apresentados. O consumidor, por sua vez, deve se identificar adequadamente e comprometer-se a apresentar todos os dados e informaÃ§Ãµes relativas Ã  reclamaÃ§Ã£o relatada.</p>
 
 ####Limpando os dados das colunas usando o pacote janitor.
 ```{r}
 (consumidorgov %>% clean_names())
 colnames(consumidorgov)
 ```
-#### Filter usando dados do mercado aereo.
+#### Filter vamos trabalhar apenas com dados de Transporte AÃ©reo
 ```{r}
-consumidoraereo <- consumidorgov %>% filter(Segmento.de.Mercado == "Transporte Aéreo")
+consumidoraereo <- consumidorgov %>% filter(Segmento.de.Mercado == "Transporte AÃ©reo")
 ## rm(consumidorgov)
 ```
 
@@ -91,7 +90,7 @@ consumidoraereo <- consumidorgov %>% filter(Segmento.de.Mercado == "Transporte A
 
 #### Pizza nome fantasia
 
-#### Gráfico de barras tipo do problema
+#### GrÃ¡fico de barras tipo do problema
 ```{r}
 
 ```
