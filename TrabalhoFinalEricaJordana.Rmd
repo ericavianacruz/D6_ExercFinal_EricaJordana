@@ -34,21 +34,21 @@ gc()
 #### Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários
 ```{r, warning=FALSE}
 ##carregando em memoria
-consumidorgov1 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2015_1.csv",head=TRUE, sep = ";")
-consumidorgov2 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2015_2.csv",head=TRUE, sep = ";")
-consumidorgov3 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2016_1.csv",head=TRUE, sep = ";")
-consumidorgov4 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2016_2.csv",head=TRUE, sep = ";")
-consumidorgov5 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2017_1.csv",head=TRUE, sep = ";")
-consumidorgov6 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2017_2.csv",head=TRUE, sep = ";")
-consumidorgov181 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-01.csv",head=TRUE, sep = ";")
-consumidorgov182 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-02.csv",head=TRUE, sep = ";")
-consumidorgov183 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-03.csv",head=TRUE, sep = ";")
-consumidorgov184 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-04.csv",head=TRUE, sep = ";")
-consumidorgov185 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-05.csv",head=TRUE, sep = ";")
-consumidorgov186 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-06.csv",head=TRUE, sep = ";")
-consumidorgov187 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-07.csv",head=TRUE, sep = ";")
-consumidorgov188 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-08.csv",head=TRUE, sep = ";")
-consumidorgov189 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/ExercicioFinal/dados_brutos/2018-09.csv",head=TRUE, sep = ";")
+consumidorgov1 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2015_1.csv",head=TRUE, sep = ";")
+consumidorgov2 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2015_2.csv",head=TRUE, sep = ";")
+consumidorgov3 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2016_1.csv",head=TRUE, sep = ";")
+consumidorgov4 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2016_2.csv",head=TRUE, sep = ";")
+consumidorgov5 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2017_1.csv",head=TRUE, sep = ";")
+consumidorgov6 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2017_2.csv",head=TRUE, sep = ";")
+consumidorgov181 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-01.csv",head=TRUE, sep = ";")
+consumidorgov182 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-02.csv",head=TRUE, sep = ";")
+consumidorgov183 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-03.csv",head=TRUE, sep = ";")
+consumidorgov184 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-04.csv",head=TRUE, sep = ";")
+consumidorgov185 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-05.csv",head=TRUE, sep = ";")
+consumidorgov186 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-06.csv",head=TRUE, sep = ";")
+consumidorgov187 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-07.csv",head=TRUE, sep = ";")
+consumidorgov188 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-08.csv",head=TRUE, sep = ";")
+consumidorgov189 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-09.csv",head=TRUE, sep = ";")
 ##Usando bind para agrupar todos os arquivos em um único arquivo.
 consumidorgov <- bind_rows(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
 
@@ -73,25 +73,40 @@ head(consumidorgov)
 <p style="text-align: justify;">Por se tratar de um serviço provido e mantido pelo Estado, com ênfase na interatividade entre consumidores e fornecedores para redução de conflitos de consumo, a participação de empresas voluntária e só é permitida aquelas que aderem formalmente ao servi?o, mediante assinatura de termo no qual se comprometem a conhecer, analisar e investir todos os esforços possíveis para a solução dos problemas apresentados. O consumidor, por sua vez, deve se identificar adequadamente e comprometer-se a apresentar todos os dados e informações relativas à reclamação relatada.</p>
 
 ####Limpando os dados das colunas usando o pacote janitor.
-```{r}
-(consumidorgov %>% clean_names())
-colnames(consumidorgov)
+```{r, echo=TRUE}
+consumidorgov <- consumidorgov %>% clean_names()
 ```
+
+```{r, echo=TRUE}
+colnames(consumidorgov)
+
+names(consumidorgov)[10] <- "Area"
+names(consumidorgov)[1] <- "Regiao"
+```
+
+#### Qual a proporção de problemas por segmento usando tydeverse
+```{r}
+consumidorgov %>% ggplot (aes (x = Area, colour = Area, fill = Area)) +
+  theme_minimal() +
+  geom_bar(stat = 'count') + 
+  scale_y_continuous(name = "" , breaks = c(0,2e+05,4e+05),labels=c('0','200 mil','400 mil')) +
+  labs(title = "Quantidade de Reclamações por Área") +
+  theme(axis.text.x = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
+```
+
 #### Filter vamos trabalhar apenas com dados de Transporte Aéreo
 ```{r}
-consumidoraereo <- consumidorgov %>% filter(Segmento.de.Mercado == "Transporte Aéreo")
+##consumidoraereo <- consumidorgov %>% filter(Segmento.de.Mercado == "Transporte Aéreo")
 ## rm(consumidorgov)
 ```
 
 #### Pizza tipos de problema
 ```{r}
-(consumidoraereo %>% distinct(Grupo.Problema))
+##(consumidoraereo %>% distinct(Grupo.Problema))
 ```
 
 #### Pizza nome fantasia
 
 #### Gráfico de barras tipo do problema
-```{r}
-
-```
 
