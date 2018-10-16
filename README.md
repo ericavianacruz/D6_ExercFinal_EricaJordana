@@ -7,5 +7,4 @@ Aluna: Érica Jordana Bento Viana Cruz <br>
 
 Disciplina: Coleta e Análise de Dados Secundários </b>
 
-Este repositório contém código em linguagem R para a disciplina citada e análisa informações dos dados abertos do site
-<b>consumidor.gov.br</b> especialmente em relação aos serviços ofertados na área de <b>Transporte Aéreo</b>.
+Este repositório contém código em linguagem R para a disciplina citada e análisa informações dos dados abertos das reclamações realizadas no site <b>consumidor.gov.br</b> especialmente em relação aos serviços ofertados na área de <b>Transporte Aéreo</b>.
