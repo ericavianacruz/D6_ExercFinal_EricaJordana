@@ -34,22 +34,23 @@ gc()
 #### Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários
 ```{r, warning=FALSE}
 ##carregando em memoria
-consumidorgov1 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2015_1.csv",head=TRUE, sep = ";")
-consumidorgov2 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2015_2.csv",head=TRUE, sep = ";")
-consumidorgov3 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2016_1.csv",head=TRUE, sep = ";")
-consumidorgov4 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2016_2.csv",head=TRUE, sep = ";")
-consumidorgov5 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2017_1.csv",head=TRUE, sep = ";")
-consumidorgov6 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2017_2.csv",head=TRUE, sep = ";")
-consumidorgov181 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-01.csv",head=TRUE, sep = ";")
-consumidorgov182 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-02.csv",head=TRUE, sep = ";")
-consumidorgov183 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-03.csv",head=TRUE, sep = ";")
-consumidorgov184 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-04.csv",head=TRUE, sep = ";")
-consumidorgov185 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-05.csv",head=TRUE, sep = ";")
-consumidorgov186 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-06.csv",head=TRUE, sep = ";")
-consumidorgov187 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-07.csv",head=TRUE, sep = ";")
-consumidorgov188 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-08.csv",head=TRUE, sep = ";")
-consumidorgov189 <- read.csv ("D:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-09.csv",head=TRUE, sep = ";")
+consumidorgov1 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2015_1.csv",head=TRUE, sep = ";")
+consumidorgov2 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2015_2.csv",head=TRUE, sep = ";")
+consumidorgov3 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2016_1.csv",head=TRUE, sep = ";")
+consumidorgov4 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2016_2.csv",head=TRUE, sep = ";")
+consumidorgov5 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2017_1.csv",head=TRUE, sep = ";")
+consumidorgov6 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2017_2.csv",head=TRUE, sep = ";")
+consumidorgov181 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-01.csv",head=TRUE, sep = ";")
+consumidorgov182 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-02.csv",head=TRUE, sep = ";")
+consumidorgov183 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-03.csv",head=TRUE, sep = ";")
+consumidorgov184 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-04.csv",head=TRUE, sep = ";")
+consumidorgov185 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-05.csv",head=TRUE, sep = ";")
+consumidorgov186 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-06.csv",head=TRUE, sep = ";")
+consumidorgov187 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-07.csv",head=TRUE, sep = ";")
+consumidorgov188 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-08.csv",head=TRUE, sep = ";")
+consumidorgov189 <- read.csv ("F:/ENAP_Especializacao/D6_Analise_de_dados/D6_ExercFinal_EricaJordana/dados_brutos/2018-09.csv",head=TRUE, sep = ";")
 ##Usando bind para agrupar todos os arquivos em um único arquivo.
+
 consumidorgov <- bind_rows(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
 
 ##removendo arquivos temporários
@@ -70,7 +71,11 @@ head(consumidorgov)
 
 <p style="text-align: justify;">A principal inovação do Consumidor.gov.br está em possibilitar uma interlocução direta entre consumidores e empresas, em um ambiente totalmente público e transparente, dispensada a intervenção do Poder Público na tratativa individual.</p>
 
-<p style="text-align: justify;">Por se tratar de um serviço provido e mantido pelo Estado, com ênfase na interatividade entre consumidores e fornecedores para redução de conflitos de consumo, a participação de empresas voluntária e só é permitida aquelas que aderem formalmente ao servi?o, mediante assinatura de termo no qual se comprometem a conhecer, analisar e investir todos os esforços possíveis para a solução dos problemas apresentados. O consumidor, por sua vez, deve se identificar adequadamente e comprometer-se a apresentar todos os dados e informações relativas à reclamação relatada.</p>
+<p style="text-align: justify;">Em dezembro de 2016, a Agência Nacional de Aviação Civil – ANAC e a Secretaria Nacional do Consumidor – Senacon do Ministério da Justiça, assinaram o Acordo de Cooperação Técnica nº 2, pelo qual a ANAC aderiu à plataforma de solução alternativa de conflitos Consumidor.gov.br. Trata-se de um ambiente virtual ágil para a solução de problemas entre consumidores e empresas.</p>
+
+<p style="text-align: justify;">O Consumidor.gov.br é gerido pela Senacon, em conjunto com outros órgãos públicos de defesa do consumidor. O uso da plataforma é recomendado pelo Poder Judiciário de 16 Estados como forma de promoção de conciliação e redução da judicialização. O sistema ainda foi reconhecido pelo Ministério da Transparência e Controladoria Geral da União como melhor serviço público digital do Governo Federal.</p>
+
+<p style="text-align: justify;">Com a adesão da ANAC, a agência reguladora passa a realizar um monitoramento de maior qualidade sobre as reclamações de consumidores em relação ao serviço de transporte aéreo de passageiros.  A parceria visa otimizar a utilização de um canal público de solução alternativa de conflitos, propiciando resolução célere e segura de conflitos de consumo. A representatividade do transporte aéreo na plataforma em 2017 é de 2,51% das reclamações registradas, segundo divulgação da Senacon.</p>
 
 ####Limpando os dados das colunas usando o pacote janitor.
 ```{r, echo=TRUE}
@@ -78,10 +83,17 @@ consumidorgov <- consumidorgov %>% clean_names()
 ```
 
 ```{r, echo=TRUE}
-colnames(consumidorgov)
 
 names(consumidorgov)[10] <- "Area"
 names(consumidorgov)[1] <- "Regiao"
+names(consumidorgov)[5] <- "Faixa_Etaria"
+names(consumidorgov)[6] <- "Data_Finalizacao"
+names(consumidorgov)[17] <- "Situacao"
+names(consumidorgov)[18] <- "Avaliacao_Reclamacao"
+names(consumidorgov)[8] <- "Nome_Fantasia"
+names(consumidorgov)[9] <- "Segmento_Mercado"
+
+colnames(consumidorgov)
 ```
 
 #### Qual a proporção de problemas por segmento usando tydeverse
@@ -97,16 +109,34 @@ consumidorgov %>% ggplot (aes (x = Area, colour = Area, fill = Area)) +
 
 #### Filter vamos trabalhar apenas com dados de Transporte Aéreo
 ```{r}
-##consumidoraereo <- consumidorgov %>% filter(Segmento.de.Mercado == "Transporte Aéreo")
-## rm(consumidorgov)
+consumidoraereo <- consumidorgov %>% filter(Segmento_Mercado == "Transporte Aéreo")
+
+### Tabela de Problemas
+problemas <- consumidoraereo %>% count(Problema)
+### Tabela de Empresas
+empresas <- consumidoraereo %>% count(Nome_Fantasia)
+
+##Como juntar os dados da Avianca?
+empresas <- empresas %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas")) 
+  
+## Data atualizando
+consumidoraereo <- consumidoraereo %>% mutate(Data_Finalizacao = dmy(Data_Finalizacao), ano = year(data_finalizacao))
+
+## Ano das reclamaçoes 
+ano_empresa <- consumidoraereo %>% count(Nome_Fantasia, ano)
+
 ```
 
-#### Pizza tipos de problema
+#### Pizza por empresa, completar e melhorar
 ```{r}
-##(consumidoraereo %>% distinct(Grupo.Problema))
+ggplot (data = empresas, aes (x= "", y = n, fill = Nome_Fantasia))     +
+    geom_bar (stat = "identity") +
+    coord_polar("y", start = 0)
+theme_minimal()
+
 ```
 
 #### Pizza nome fantasia
 
-#### Gráfico de barras tipo do problema
+#### GrÃ¡fico de barras tipo do problema
 
