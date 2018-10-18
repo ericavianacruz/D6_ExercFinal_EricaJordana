@@ -148,24 +148,26 @@ ggplot (data = empresas_ano_principais, aes (x= "", y = Quantidade_Reclamacoes, 
 
 #### Qual a quantidade de reclamações por ano
 ```{r}
-consumidoraereo %>% ggplot (aes (x = ano, colour = as.character(ano), fill = ano)) +
+consumidoraereo %>% ggplot (aes (x = ano, colour = as.factor(ano) , fill = as.factor(ano))) +
   theme_minimal() +
   geom_bar(stat = 'count') + 
-  labs(title = "Quantidade de Reclamações por Ano") +
+  labs(title = "Quantidade de Reclamações por Ano", fill = "Ano" ) +
   theme(axis.title.y = element_blank(), axis.title.x = element_blank()) +
   theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
-  scale_fill_viridis_c()
+  guides (colour = FALSE)
 ```
 
 
 #### Pizza por empresa, completar e melhorar
 ```{r, echo=FALSE}
 ggplot (data = empresas_ano_principais, aes (x= "", y = Quantidade_Reclamacoes , fill = Avaliacao_Reclamacao)) +
-    labs(title = "Avaliaçao das Reclamações") +
+    labs(title = "Avaliaçao das Reclamações", fill = "Situação") +
     geom_bar (stat = "identity") +
     coord_polar("y", start = 0) +
     theme_minimal() +
-    scale_fill_brewer(palette = "Blues")
+    scale_fill_brewer(palette = "Blues") 
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
+  ##geom_text(aes(label = ..count..), stat= "count", vjust = -.5)
 
 ```
 
