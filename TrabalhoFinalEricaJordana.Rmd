@@ -5,16 +5,17 @@ date: "22 de Outubro de 2018"
 output: html_document
 ---
 
+```{r, include = FALSE, echo = TRUE}
 ## Carregando pacotes necessários
-```{r, include=FALSE, echo=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
-lista.de.pacotes = c("tidyverse","lubridate","janitor","readxl","stringr","repmis", "readr", "ggplot2", "knitr") # escreva a lista de pacotes
+lista.de.pacotes = c("tidyverse","lubridate","janitor","readxl","stringr","repmis",
+                     "readr", "ggplot2", "knitr") # escreva a lista de pacotes
 novos.pacotes <- lista.de.pacotes[!(lista.de.pacotes %in%
                                       installed.packages()[,"Package"])]
 if(length(novos.pacotes) > 0) {install.packages(novos.pacotes)}
 lapply(lista.de.pacotes, require, character.only=T)
 rm(lista.de.pacotes,novos.pacotes)
 gc()
+
 ```
 
 <center>
@@ -27,40 +28,6 @@ gc()
 <center>![CONSUMIDOR.GOV](https://www.consumidor.gov.br/resources/imagens/logo-nova-900.png) </center>
 
 <p style="text-align: justify;"> </p>
-
-## Perguntas de Pesquisa
-
-#### A quantidade de reclamações por segmento de mercado de Transporte Áereo é relevante em relação ao total de reclamações?
-####
-
-## Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários
-```{r, warning=FALSE}
-consumidorgov1 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2015_1.csv",head=TRUE, sep = ";")
-consumidorgov2 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2015_2.csv",head=TRUE, sep = ";")
-consumidorgov3 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2016_1.csv",head=TRUE, sep = ";")
-consumidorgov4 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2016_2.csv",head=TRUE, sep = ";")
-consumidorgov5 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2017_1.csv",head=TRUE, sep = ";")
-consumidorgov6 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2017_2.csv",head=TRUE, sep = ";")
-consumidorgov181 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-01.csv",head=TRUE, sep = ";")
-consumidorgov182 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-02.csv",head=TRUE, sep = ";")
-consumidorgov183 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-03.csv",head=TRUE, sep = ";")
-consumidorgov184 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-04.csv",head=TRUE, sep = ";")
-consumidorgov185 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-05.csv",head=TRUE, sep = ";")
-consumidorgov186 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-06.csv",head=TRUE, sep = ";")
-consumidorgov187 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-07.csv",head=TRUE, sep = ";")
-consumidorgov188 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-08.csv",head=TRUE, sep = ";")
-consumidorgov189 <- read.csv ("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/2018-09.csv",head=TRUE, sep = ";")
-
-```
-
-## Agrupando os Dados em um único arquivo.
-```{r, warning=FALSE}
-##Usando bind para agrupar todos os arquivos em um único arquivo.
-consumidorgov <- bind_rows(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
-
-##removendo arquivos temporários
-rm(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
-```
 
 ## A plataforma Consumidor.gov 
 
@@ -75,6 +42,44 @@ rm(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,co
 <p style="text-align: justify;">O Consumidor.gov.br é gerido pela Senacon, em conjunto com outros órgãos públicos de defesa do consumidor. O uso da plataforma é recomendado pelo Poder Judiciário de 16 Estados como forma de promoção de conciliação e redução da judicialização. O sistema ainda foi reconhecido pelo Ministério da Transparência e Controladoria Geral da União como melhor serviço público digital do Governo Federal.</p>
 
 <p style="text-align: justify;">Com a adesão da ANAC, a agência reguladora passa a realizar um monitoramento de maior qualidade sobre as reclamações de consumidores em relação ao serviço de transporte aéreo de passageiros.  A parceria visa otimizar a utilização de um canal público de solução alternativa de conflitos, propiciando resolução célere e segura de conflitos de consumo. A representatividade do transporte aéreo na plataforma em 2017 é de 2,51% das reclamações registradas, segundo divulgação da Senacon.</p>
+
+## Perguntas de Pesquisa
+
+#### A quantidade de reclamações por segmento de mercado de Transporte Áereo é relevante em relação ao total de reclamações?
+
+#### Quanto as reclamações do segmento Transporte Áereo são percentualmente em relacao as reclamações da área Transporte? 
+
+####
+
+## Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários
+```{r, warning=FALSE}
+setwd("F:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/")
+consumidorgov1 <- read.csv ("2015_1.csv",head=TRUE, sep = ";")
+consumidorgov2 <- read.csv ("2015_2.csv",head=TRUE, sep = ";")
+consumidorgov3 <- read.csv ("2016_1.csv",head=TRUE, sep = ";")
+consumidorgov4 <- read.csv ("2016_2.csv",head=TRUE, sep = ";")
+consumidorgov5 <- read.csv ("2017_1.csv",head=TRUE, sep = ";")
+consumidorgov6 <- read.csv ("2017_2.csv",head=TRUE, sep = ";")
+consumidorgov181 <- read.csv ("2018-01.csv",head=TRUE, sep = ";")
+consumidorgov182 <- read.csv ("2018-02.csv",head=TRUE, sep = ";")
+consumidorgov183 <- read.csv ("2018-03.csv",head=TRUE, sep = ";")
+consumidorgov184 <- read.csv ("2018-04.csv",head=TRUE, sep = ";")
+consumidorgov185 <- read.csv ("2018-05.csv",head=TRUE, sep = ";")
+consumidorgov186 <- read.csv ("2018-06.csv",head=TRUE, sep = ";")
+consumidorgov187 <- read.csv ("2018-07.csv",head=TRUE, sep = ";")
+consumidorgov188 <- read.csv ("2018-08.csv",head=TRUE, sep = ";")
+consumidorgov189 <- read.csv ("2018-09.csv",head=TRUE, sep = ";")
+
+```
+
+## Agrupando os Dados em um único arquivo.
+```{r, warning=FALSE}
+##Usando bind para agrupar todos os arquivos em um único arquivo.
+consumidorgov <- bind_rows(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
+
+##removendo arquivos temporários
+rm(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
+```
 
 ##Limpando os dados das colunas usando o pacote janitor.
 ```{r, echo=TRUE}
@@ -108,9 +113,9 @@ reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, f
   theme_minimal() +
   geom_bar(stat = 'identity') + 
   scale_y_continuous(name = "" , breaks = c(0,2e+05,4e+05),labels=c('0','200 mil','400 mil')) +
-  labs(title = "Quantidade de Reclamações por Área", xlab("Área")) +
+  labs(title = "Quantidade de Reclamações por Área", x = "Áreas") +
   theme(axis.text.x = element_blank()) +
-  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) 
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
 ```
 
 
