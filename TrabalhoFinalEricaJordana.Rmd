@@ -1,5 +1,5 @@
 ---
-title: "Trabalho Final Disciplina Analise e coleta de Dados"
+title: "Trabalho Final Disciplina Análise e coleta de Dados"
 author: "Erica Jordana Bento Viana Cruz"
 date: "25 de Outubro de 2018 "
 output: html_document
@@ -172,7 +172,7 @@ reclamacoes_empresas %>% ggplot (aes (x= "", y = prop, fill = Nome_Fantasia)) +
 consumidoraereo %>% ggplot (aes (x = ano, colour = as.factor(ano) , fill = as.factor(ano))) +
     theme_minimal() +
     geom_bar(stat = 'count') + 
-    labs(title = "Quantidade de Reclamações por Ano", fill = "Ano" ) +
+    labs(title = "Quantidade de Reclamações por Ano", fill = "Ano", y = "" ) +
     theme(axis.title.y = element_blank(), axis.title.x = element_blank()) +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
     guides (colour = FALSE)
@@ -184,14 +184,14 @@ consumidoraereo %>% ggplot (aes (x = ano, colour = as.factor(ano) , fill = as.fa
 empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fill = Avaliacao_Reclamacao)) +
     theme_minimal() +
     geom_bar (stat = "identity") +
-    labs(title = "Avaliaçao das Reclamações", fill = "Situação") +
+    labs(title = "Avaliaçao das Reclamações", fill = "Situação", y = "") +
     coord_polar("y", start = 0) +
     scale_fill_brewer(palette = "Blues") +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
 
 ```
 
-## 9. COnclusões
+## 9. Conclusões
 
 #### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. 
 Portanto bastante baixa em relação ao segmento de serviços financeiros.
