@@ -193,3 +193,10 @@ empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fil
 ```
 
 ## 9. COnclusões
+
+9.1 
+9.2
+9.3
+9.4
+9.5
+
