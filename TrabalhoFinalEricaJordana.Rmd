@@ -1,7 +1,7 @@
 ---
-title: "Trabalho Final "
-author: "Erica Jordana "
-date: "22 de Outubro de 2018"
+title: "Trabalho Final Disciplina Analise e coleta de Dados"
+author: "Erica Jordana Bento Viana Cruz"
+date: "25 de Outubro de 2018 "
 output: html_document
 ---
 
@@ -19,39 +19,51 @@ gc()
 ```
 
 <center>
-## Análise de Dados de atendimentos ao sistema Consumidor.gov em relação ao segmento de mercado de Transporte Aéreo.
+## 1.  Objeto: Análise de Dados de atendimentos finalizados do sistema Consumidor.gov em relação ao segmento de mercado de Transporte Aéreo nos anos dde 2015 a 2018.
+
 <br>
 </center>
 
-<p style="text-align: justify;">Mais informações podem ser obtidas no website do Consumidor.gov] (http:\\www.consumidor.gov.br) .</p> 
-
-<center>![CONSUMIDOR.GOV](https://www.consumidor.gov.br/resources/imagens/logo-nova-900.png) </center>
+<center>![CONSUMIDOR.GOV](https://procon.rs.gov.br/upload/recortes/201801/26123321_4398_GDO.jpg) </center>
 
 <p style="text-align: justify;"> </p>
 
-## A plataforma Consumidor.gov 
+## 2. Contexto e Justificativa: A plataforma Consumidor.gov 
 
-<p style="text-align: justify;">O <b>Consumidor.gov.br</b> É um serviço público que permite a interlocução direta entre consumidores e empresas para solução alternativa de conflitos de consumo pela internet.</p>
+<p style="text-align: justify;">O <b>Consumidor.gov.br</b> É um serviço público que permite a interlocução direta entre consumidores e empresas para solução alternativa de conflitos de consumo pela internet. Em Janeiro de 2018 completou 1.000.000 de reclamações finalizadas</p>
 
 <p style="text-align: justify;">Ele não substitui o serviço prestado pelos órgãos de Defesa do Consumidor, que continuam atendendo os consumidores normalmente por meio de seus canais tradicionais de atendimento.</p>
 
 <p style="text-align: justify;">A principal inovação do Consumidor.gov.br está em possibilitar uma interlocução direta entre consumidores e empresas, em um ambiente totalmente público e transparente, dispensada a intervenção do Poder Público na tratativa individual.</p>
 
-<p style="text-align: justify;">Em dezembro de 2016, a Agência Nacional de Aviação Civil – ANAC e a Secretaria Nacional do Consumidor – Senacon do Ministério da Justiça, assinaram o Acordo de Cooperação Técnica nº 2, pelo qual a ANAC aderiu à plataforma de solução alternativa de conflitos Consumidor.gov.br. Trata-se de um ambiente virtual ágil para a solução de problemas entre consumidores e empresas.</p>
+<p style="text-align: justify;"><b>Em dezembro de 2016, a Agência Nacional de Aviação Civil – ANAC e a Secretaria Nacional do Consumidor – Senacon do Ministério da Justiça, assinaram o Acordo de Cooperação Técnica nº 2, pelo qual a ANAC aderiu à plataforma de solução alternativa de conflitos Consumidor.gov.br. </b></p>
 
 <p style="text-align: justify;">O Consumidor.gov.br é gerido pela Senacon, em conjunto com outros órgãos públicos de defesa do consumidor. O uso da plataforma é recomendado pelo Poder Judiciário de 16 Estados como forma de promoção de conciliação e redução da judicialização. O sistema ainda foi reconhecido pelo Ministério da Transparência e Controladoria Geral da União como melhor serviço público digital do Governo Federal.</p>
 
 <p style="text-align: justify;">Com a adesão da ANAC, a agência reguladora passa a realizar um monitoramento de maior qualidade sobre as reclamações de consumidores em relação ao serviço de transporte aéreo de passageiros.  A parceria visa otimizar a utilização de um canal público de solução alternativa de conflitos, propiciando resolução célere e segura de conflitos de consumo. A representatividade do transporte aéreo na plataforma em 2017 é de 2,51% das reclamações registradas, segundo divulgação da Senacon.</p>
 
-## Perguntas de Pesquisa
+<p style="text-align: justify;"><b>Entender as reclamações e como os envolvidos se comportam, auxilia na melhor definição de políticas públicas para as relações de consumo no setor.</b></p>
 
-#### A quantidade de reclamações por segmento de mercado de Transporte Áereo é relevante em relação ao total de reclamações?
+<p style="text-align: justify;"><b>Mais informações podem ser obtidas no website do Consumidor.gov] (http:\\www.consumidor.gov.br) .</b></p> 
 
-#### Quanto as reclamações do segmento Transporte Áereo são percentualmente em relacao as reclamações da área Transporte? 
+## 3. Objetivos: Perguntas de Pesquisa
 
-####
+#### 3.1 A quantidade de reclamações por segmento de mercado de Transporte é relevante em relação ao total de reclamações?
 
-## Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários
+#### 3.2 Qual percentual das reclamações do segmento Transporte Áereo em relacao as reclamações da área Transporte? 
+
+#### 3.3 Quais são as empresas com mais reclamações?
+
+#### 3.4 Como está o uso do consumidor.gov pa o segmento de transporte áereo nos anos analisados?
+
+#### 3.5 Como se dá o encerramento das reclamações, são resolvidas? 
+
+## 4. Método: Como foram coletados, tratados e organizados os dados
+
+Os dados a serem trabalhados foram obtidos no site do consumidor.gov.br em formato .csv e tratados 
+conforme abaixo.
+
+4.1 Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários.
 ```{r, warning=FALSE}
 setwd("F:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/")
 consumidorgov1 <- read.csv ("2015_1.csv",head=TRUE, sep = ";")
@@ -72,54 +84,42 @@ consumidorgov189 <- read.csv ("2018-09.csv",head=TRUE, sep = ";")
 
 ```
 
-## Agrupando os Dados em um único arquivo.
+
+## 4.2 Tratamento dos dados: agrupando os dados em um único arquivo.
 ```{r, warning=FALSE}
-##Usando bind para agrupar todos os arquivos em um único arquivo.
+## Usando bind para agrupar todos os arquivos em um único arquivo.
 consumidorgov <- bind_rows(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
 
-##removendo arquivos temporários
+## removendo arquivos temporários
 rm(consumidorgov1,consumidorgov2,consumidorgov3,consumidorgov4,consumidorgov5,consumidorgov6,consumidorgov181,consumidorgov182,consumidorgov183,consumidorgov184,consumidorgov185,consumidorgov186,consumidorgov187,consumidorgov188,consumidorgov189)
+
 ```
 
+
+## 4.3 Tratamento dos dados: organizando as colunas. 
+```{r, echo=TRUE}
 ##Limpando os dados das colunas usando o pacote janitor.
-```{r, echo=TRUE}
 consumidorgov <- consumidorgov %>% clean_names()
-```
-
-```{r, echo=TRUE}
 
 names(consumidorgov)[10] <- "Area"
-names(consumidorgov)[1] <- "Regiao"
-names(consumidorgov)[5] <- "Faixa_Etaria"
-names(consumidorgov)[6] <- "Data_Finalizacao"
+names(consumidorgov)[1]  <- "Regiao"
+names(consumidorgov)[5]  <- "Faixa_Etaria"
+names(consumidorgov)[6]  <- "Data_Finalizacao"
 names(consumidorgov)[17] <- "Situacao"
 names(consumidorgov)[18] <- "Avaliacao_Reclamacao"
-names(consumidorgov)[8] <- "Nome_Fantasia"
-names(consumidorgov)[9] <- "Segmento_Mercado"
+names(consumidorgov)[8]  <- "Nome_Fantasia"
+names(consumidorgov)[9]  <- "Segmento_Mercado"
 names(consumidorgov)[19] <- "Nota_Consumidor"
 names(consumidorgov)[15] <- "Procurou_Empresa"
 names(consumidorgov)[14] <- "Como_Contratou"
 names(consumidorgov)[12] <- "Grupo_Problema"
-names(consumidorgov)[7] <- "Tempo_Resposta"
+names(consumidorgov)[7]  <- "Tempo_Resposta"
+
 colnames(consumidorgov)
 ```
 
-## Qual a proporção de problemas por area usando Tydeverse
-```{r}
-reclamacoes_area <- consumidorgov %>% select(Area) %>% count (Area) %>% 
-  mutate (prop = n / sum(n), prop = scales::percent(prop)) 
+## 4.4 Tratamento de dados: Criando conjuntos de dados usando filter
 
-reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, fill = Area)) +
-  theme_minimal() +
-  geom_bar(stat = 'identity') + 
-  scale_y_continuous(name = "" , breaks = c(0,2e+05,4e+05),labels=c('0','200 mil','400 mil')) +
-  labs(title = "Quantidade de Reclamações por Área", x = "Áreas") +
-  theme(axis.text.x = element_blank()) +
-  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
-```
-
-
-## Usando filter, pois vamos trabalhar apenas com dados de Transporte Aéreo
 ```{r}
 consumidoraereo <- consumidorgov %>% filter(Segmento_Mercado == "Transporte Aéreo")
 
@@ -133,46 +133,63 @@ consumidoraereo <- consumidoraereo %>% mutate(Data_Finalizacao = dmy(Data_Finali
 empresas_ano <- consumidoraereo %>% count(Nome_Fantasia, ano, Avaliacao_Reclamacao) %>% arrange(desc(Nome_Fantasia, ano, Avaliacao_Reclamacao, n))
 
 names(empresas_ano)[4] <- "Quantidade_Reclamacoes"
+
 ##Como juntar os dados da Avianca?
 empresas_ano_principais <- empresas_ano %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas")) 
-
 ```
 
-
-#### Pizza por empresa, completar e melhorar
-```{r, echo=FALSE}
-ggplot (data = empresas_ano_principais, aes (x= "", y = Quantidade_Reclamacoes, fill = Nome_Fantasia)) +
-    labs(title = "Quantidade de reclamações pelas principais empresas") +
-    geom_bar (stat = "identity") +
-    coord_polar("y", start = 0) +
-    theme_minimal() +
-    scale_fill_viridis_d()
-
-```
-
-
-
-#### Qual a quantidade de reclamações por ano
+## 5. Qual a proporção de problemas por área
 ```{r}
-consumidoraereo %>% ggplot (aes (x = ano, colour = as.factor(ano) , fill = as.factor(ano))) +
+reclamacoes_area <- consumidorgov %>% select(Area) %>% count (Area) %>% 
+  mutate (prop = n / sum(n), prop = scales::percent(prop)) 
+
+reclamacoes_area <- reclamacoes_area %>% arrange(desc(prop))
+
+reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, fill = Area)) +
   theme_minimal() +
-  geom_bar(stat = 'count') + 
-  labs(title = "Quantidade de Reclamações por Ano", fill = "Ano" ) +
-  theme(axis.title.y = element_blank(), axis.title.x = element_blank()) +
-  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
-  guides (colour = FALSE)
-```
-
-
-## Pizza por empresa, completar e melhorar
-```{r, echo=FALSE}
-ggplot (data = empresas_ano_principais, aes (x= "", y = Quantidade_Reclamacoes , fill = Avaliacao_Reclamacao)) +
-    labs(title = "Avaliaçao das Reclamações", fill = "Situação") +
-    geom_bar (stat = "identity") +
-    coord_polar("y", start = 0) +
-    theme_minimal() +
-    scale_fill_brewer(palette = "Blues") 
+  geom_bar(stat = 'identity') + 
+  scale_y_continuous(name = "" , breaks = c(0,2e+05,4e+05),labels=c('0','200 mil','400 mil')) +
+  labs(title = "Quantidade de Reclamações por Área", x = "Áreas") +
+  theme(axis.text.x = element_blank()) +
   theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
-  ## + geom_text(aes(label = ..count..), stat= "count", vjust = -.5)
+
+(reclamacoes_area)
+```
+
+## 6. Quantidade de reclamações pelas principais empresas
+```{r, echo=TRUE}
+empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes, fill = Nome_Fantasia)) +
+    theme_minimal() +
+    geom_bar (stat = "identity") +
+    labs(title = "Quantidade de reclamações pelas principais empresas", x = "Quantidade", fill = "Empresa") +
+    coord_polar("y", start = 0) +
+    scale_fill_viridis_d() +
+    theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
+```
+
+
+## 7. Quantidade de reclamações por ano no segmento de transporte áereo
+```{r, echo = TRUE, warning= FALSE}
+consumidoraereo %>% ggplot (aes (x = ano, colour = as.factor(ano) , fill = as.factor(ano))) +
+    theme_minimal() +
+    geom_bar(stat = 'count') + 
+    labs(title = "Quantidade de Reclamações por Ano", fill = "Ano" ) +
+    theme(axis.title.y = element_blank(), axis.title.x = element_blank()) +
+    theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
+    guides (colour = FALSE)
+```
+
+
+## 8. Avaliação das reclamações finalizadas
+```{r, echo=TRUE, warning = FALSE}
+empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fill = Avaliacao_Reclamacao)) +
+    theme_minimal() +
+    geom_bar (stat = "identity") +
+    labs(title = "Avaliaçao das Reclamações", fill = "Situação") +
+    coord_polar("y", start = 0) +
+    scale_fill_brewer(palette = "Blues") +
+    theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
 
 ```
+
+## 9. COnclusões
