@@ -65,7 +65,7 @@ conforme abaixo.
 
 4.1 Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários.
 ```{r, warning=FALSE}
-setwd("F:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/")
+setwd("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/")
 consumidorgov1 <- read.csv ("2015_1.csv",head=TRUE, sep = ";")
 consumidorgov2 <- read.csv ("2015_2.csv",head=TRUE, sep = ";")
 consumidorgov3 <- read.csv ("2016_1.csv",head=TRUE, sep = ";")
@@ -151,9 +151,9 @@ reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, f
   scale_y_continuous(name = "" , breaks = c(0,2e+05,4e+05),labels=c('0','200 mil','400 mil')) +
   labs(title = "Quantidade de Reclamações por Área", x = "Áreas") +
   theme(axis.text.x = element_blank()) +
-  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5)) +
+  geom_text( aes(label = prop, y = n + 0.5), position = position_dodge(0.9), vjust = 0, size = 2.5)
 
-(reclamacoes_area)
 ```
 
 ## 6. Quantidade de reclamações pelas principais empresas
@@ -194,9 +194,14 @@ empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fil
 
 ## 9. COnclusões
 
-9.1 
+#### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. 
+Portanto bastante baixa em relação ao segmento de serviços financeiros.
+
 9.2
+
 9.3
+
 9.4
+
 9.5
 
