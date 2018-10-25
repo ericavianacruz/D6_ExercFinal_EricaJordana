@@ -50,13 +50,11 @@ gc()
 
 #### 3.1 A quantidade de reclamações por segmento de mercado de Transporte é relevante em relação ao total de reclamações?
 
-#### 3.2 Qual percentual das reclamações do segmento Transporte Áereo em relacao as reclamações da área Transporte? 
+#### 3.2 Quais são as 3 empresas com mais reclamações?
 
-#### 3.3 Quais são as empresas com mais reclamações?
+#### 3.3 Como está o uso do consumidor.gov para o segmento de transporte áereo nos anos analisados?
 
-#### 3.4 Como está o uso do consumidor.gov pa o segmento de transporte áereo nos anos analisados?
-
-#### 3.5 Como se dá o encerramento das reclamações, são resolvidas? 
+#### 3.4 Como se dá o encerramento das reclamações, são resolvidas? 
 
 ## 4. Método: Como foram coletados, tratados e organizados os dados
 
@@ -65,7 +63,7 @@ conforme abaixo.
 
 4.1 Carregando o arquivo em mémoria e depois vamos usar o bind e apagar os arquivos temporários.
 ```{r, warning=FALSE}
-setwd("E:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/")
+setwd("G:/ENAP_Espe/D6_ColEAnDados/D6_ExercFinal_EricaJordana/dados_brutos/")
 consumidorgov1 <- read.csv ("2015_1.csv",head=TRUE, sep = ";")
 consumidorgov2 <- read.csv ("2015_2.csv",head=TRUE, sep = ";")
 consumidorgov3 <- read.csv ("2016_1.csv",head=TRUE, sep = ";")
@@ -134,16 +132,15 @@ empresas_ano <- consumidoraereo %>% count(Nome_Fantasia, ano, Avaliacao_Reclamac
 
 names(empresas_ano)[4] <- "Quantidade_Reclamacoes"
 
-##Como juntar os dados da Avianca?
-empresas_ano_principais <- empresas_ano %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas")) 
+##Analisando dados das 3 principais empresas
+empresas_ano_principais <- empresas_ano %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas", "Avianca - Aerovias", "Avianca - Oceanair"))
+
 ```
 
 ## 5. Qual a proporção de problemas por área
 ```{r}
 reclamacoes_area <- consumidorgov %>% select(Area) %>% count (Area) %>% 
   mutate (prop = n / sum(n), prop = scales::percent(prop)) 
-
-reclamacoes_area <- reclamacoes_area %>% arrange(desc(prop))
 
 reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, fill = Area)) +
   theme_minimal() +
@@ -156,17 +153,19 @@ reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, f
 
 ```
 
-## 6. Quantidade de reclamações pelas principais empresas
+## 6. Quantidade de reclamações pelas 3 principais empresas
 ```{r, echo=TRUE}
-empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes, fill = Nome_Fantasia)) +
+reclamacoes_empresas <- empresas_ano_principais %>% select(Nome_Fantasia) %>% count (Nome_Fantasia) %>% 
+  mutate (prop = n / sum(n), prop = scales::percent(prop)) 
+
+reclamacoes_empresas %>% ggplot (aes (x= "", y = prop, fill = Nome_Fantasia)) +
     theme_minimal() +
     geom_bar (stat = "identity") +
-    labs(title = "Quantidade de reclamações pelas principais empresas", x = "Quantidade", fill = "Empresa") +
+    labs(title = "Quantidade de reclamações pelas principais empresas", x = "Quantidade", y= "", fill = "Empresa") +
     coord_polar("y", start = 0) +
     scale_fill_viridis_d() +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
 ```
-
 
 ## 7. Quantidade de reclamações por ano no segmento de transporte áereo
 ```{r, echo = TRUE, warning= FALSE}
@@ -197,7 +196,7 @@ empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fil
 #### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. 
 Portanto bastante baixa em relação ao segmento de serviços financeiros.
 
-9.2
+#### 9.2
 
 9.3
 
