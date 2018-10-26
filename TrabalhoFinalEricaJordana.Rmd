@@ -155,9 +155,13 @@ reclamacoes_area %>% ggplot (aes (x = reorder(Area, -n), y = n, colour = Area, f
 
 ## 6. Quantidade de reclamações pelas 3 principais empresas
 ```{r, echo=TRUE}
-reclamacoes_empresas <- empresas_ano_principais %>% select(Nome_Fantasia) %>% count (Nome_Fantasia) %>% 
-  mutate (prop = n / sum(n), prop = scales::percent(prop)) 
+##Quantidade de reclamações por empresas.
+reclamacoes_empresas <- consumidoraereo %>% select(Nome_Fantasia) %>% count (Nome_Fantasia) %>% mutate (prop = n / sum(n), prop = scales::percent(prop)) 
 
+##Separando as principais empresas
+(reclamacoes_empresa <- reclamacoes_empresas %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas", "Avianca - Aerovias", "Avianca - Oceanair")) %>% arrange(desc(n)))
+
+##Quantidade de reclamações por empresas.
 reclamacoes_empresas %>% ggplot (aes (x= "", y = prop, fill = Nome_Fantasia)) +
     theme_minimal() +
     geom_bar (stat = "identity") +
@@ -165,6 +169,7 @@ reclamacoes_empresas %>% ggplot (aes (x= "", y = prop, fill = Nome_Fantasia)) +
     coord_polar("y", start = 0) +
     scale_fill_viridis_d() +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
+
 ```
 
 ## 7. Quantidade de reclamações por ano no segmento de transporte áereo
@@ -196,9 +201,9 @@ empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fil
 #### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. 
 Portanto bastante baixa em relação ao segmento de serviços financeiros.
 
-#### 9.2
+#### 9.2 As empresas com maiores taxas de reclamacões no sistema são a LATAM, com cerca de 40% do total de reclamações cerca de 16.200, seguido pela Azul e Gol, com cerca de 20% de reclamações. Um dado interessante é a Azul estar a frente da Gol em número de reclamações, pois o volume de passageiros transportados pela Gol é bastante superior.
 
-9.3
+9.3 Em relação aos anos há um crescimento substanial no quantitativo de reclamações, possivelmente popr uma maior divulgação da solução.
 
 9.4
 
