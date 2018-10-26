@@ -196,11 +196,11 @@ empresas_ano %>% ggplot (aes (x= "", y = n , fill = Avaliacao_Reclamacao)) +
 
 ## 9. Conclusões
 
-#### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. Portanto bastante baixa em relação ao segmento de serviços financeiros.
+<p style="text-align: justify;"> 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. Portanto bastante baixa em relação ao segmento de serviços financeiros.</p>
 
-#### 9.2 As empresas com maiores taxas de reclamacões no sistema são a LATAM, com cerca de 40% do total de reclamações cerca de 16.200, seguido pela Azul e Gol, com cerca de 20% de reclamações. Um dado interessante é a Azul estar a frente da Gol em número de reclamações, pois o volume de passageiros transportados pela Gol é bastante superior.
+<p style="text-align: justify;"> 9.2 As empresas com maiores taxas de reclamacões no sistema são a LATAM, com cerca de 40% do total de reclamações, somando cerca de 16.200 mil reclamações, seguida pela Azul e Gol, com cerca de 20% de reclamações. Um dado interessante é a Azul Linhas Aéreas estar a frente da Gol em número de reclamações, pois o volume de passageiros transportados pela Gol é bastante superior.</p>
 
-#### 9.3 Em relação aos anos há um crescimento substanial no quantitativo de reclamações, possivelmente por uma maior divulgação da solução para os cidadãos.
+<p style="text-align: justify;"> 9.3 Em relação aos anos há um crescimento substanial no quantitativo de reclamações, possivelmente por uma maior divulgação da solução para os cidadãos e da resolução rápida de reclamações.</p>
 
-#### 9.4 
+<p style="text-align: justify;"> 9.4 Cerca de 30% das reclamações são declaradas resolvidas.</p>
 
