@@ -130,10 +130,8 @@ consumidoraereo <- consumidoraereo %>% mutate(Data_Finalizacao = dmy(Data_Finali
 ### Tabela de Empresas e ano das reclamações ordenado decrescente pelas que tem mais reclamação
 empresas_ano <- consumidoraereo %>% count(Nome_Fantasia, ano, Avaliacao_Reclamacao) %>% arrange(desc(Nome_Fantasia, ano, Avaliacao_Reclamacao, n))
 
-names(empresas_ano)[4] <- "Quantidade_Reclamacoes"
-
 ##Analisando dados das 3 principais empresas
-empresas_ano_principais <- empresas_ano %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas", "Avianca - Aerovias", "Avianca - Oceanair"))
+##empresas_ano_principais <- empresas_ano %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas", "Avianca - Aerovias", "Avianca - Oceanair"))
 
 ```
 
@@ -162,10 +160,10 @@ reclamacoes_empresas <- consumidoraereo %>% select(Nome_Fantasia) %>% count (Nom
 (reclamacoes_empresa <- reclamacoes_empresas %>% filter (Nome_Fantasia %in% c("Tam", "Gol Linhas Aéreas", "Latam Airlines (Tam)", "Azul Linhas Aéreas", "Avianca - Aerovias", "Avianca - Oceanair")) %>% arrange(desc(n)))
 
 ##Quantidade de reclamações por empresas.
-reclamacoes_empresas %>% ggplot (aes (x= "", y = prop, fill = Nome_Fantasia)) +
+reclamacoes_empresa %>% ggplot (aes (x= "", y = prop, fill = Nome_Fantasia)) +
     theme_minimal() +
     geom_bar (stat = "identity") +
-    labs(title = "Quantidade de reclamações pelas principais empresas", x = "Quantidade", y= "", fill = "Empresa") +
+    labs(title = "Quantidade de reclamações pelas principais empresas", x = "", y="", fill = "Empresas") +
     coord_polar("y", start = 0) +
     scale_fill_viridis_d() +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
@@ -186,7 +184,7 @@ consumidoraereo %>% ggplot (aes (x = ano, colour = as.factor(ano) , fill = as.fa
 
 ## 8. Avaliação das reclamações finalizadas
 ```{r, echo=TRUE, warning = FALSE}
-empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fill = Avaliacao_Reclamacao)) +
+empresas_ano %>% ggplot (aes (x= "", y = n , fill = Avaliacao_Reclamacao)) +
     theme_minimal() +
     geom_bar (stat = "identity") +
     labs(title = "Avaliaçao das Reclamações", fill = "Situação", y = "") +
@@ -198,14 +196,11 @@ empresas_ano_principais %>% ggplot (aes (x= "", y = Quantidade_Reclamacoes , fil
 
 ## 9. Conclusões
 
-#### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. 
-Portanto bastante baixa em relação ao segmento de serviços financeiros.
+#### 9.1 A quantidade de reclamações no setor de Transportes é cerca de 2,7% conforme o primeiro gráfico. Portanto bastante baixa em relação ao segmento de serviços financeiros.
 
 #### 9.2 As empresas com maiores taxas de reclamacões no sistema são a LATAM, com cerca de 40% do total de reclamações cerca de 16.200, seguido pela Azul e Gol, com cerca de 20% de reclamações. Um dado interessante é a Azul estar a frente da Gol em número de reclamações, pois o volume de passageiros transportados pela Gol é bastante superior.
 
-9.3 Em relação aos anos há um crescimento substanial no quantitativo de reclamações, possivelmente popr uma maior divulgação da solução.
+#### 9.3 Em relação aos anos há um crescimento substanial no quantitativo de reclamações, possivelmente por uma maior divulgação da solução para os cidadãos.
 
-9.4
-
-9.5
+#### 9.4 
 
